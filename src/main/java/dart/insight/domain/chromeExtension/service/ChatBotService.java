@@ -18,7 +18,7 @@ public class ChatBotService {
 
     private String getTileFromURL(String url) {
 
-        String title = null;
+        String title = "오늘의 뉴스 트랜드를 확인하세요";
 
         InputStream response = null;
         try {
@@ -26,7 +26,7 @@ public class ChatBotService {
 
             Scanner scanner = new Scanner(response);
             String responseBody = scanner.useDelimiter("\\A").next();
-            title = (responseBody.substring(responseBody.indexOf("<title>") + 7, responseBody.indexOf("</title>")));
+            try {title = (responseBody.substring(responseBody.indexOf("<title>") + 7, responseBody.indexOf("</title>")));} catch(Exception exception) {}
         } catch (IOException ex) {
             ex.printStackTrace();
         } finally {
