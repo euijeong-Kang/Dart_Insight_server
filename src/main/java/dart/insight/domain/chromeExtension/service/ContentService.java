@@ -85,19 +85,6 @@ public class ContentService {
                         "</div>", companies[i],emoji,url,title,tags);
                 chatMessage.body = body;
 
-                // To Tech Team
-                if (content.getAuthor().equals("tech")) {
-                    graphClient.teams("d43 8c26d-e9a0-414e-b280-d13cf590cfd6").channels("19%3a9eg0A-9k3YavW-0hOwCymPEfSn1fGMOZ_XHeHd77bUE1%40thread.tacv2").messages()
-                            .buildRequest()
-                            .post(chatMessage);
-                    return;
-                } else if(content.getAuthor().equals("test")) {
-                    graphClient.teams("711d93dc-c8ce-4c63-9645-db7c40026822").channels("19%3aGv0hCkACe-bRZR3q9apIHC0_HCZKw1vUYTFjSns67SY1%40thread.tacv2").messages()
-                            .buildRequest()
-                            .post(chatMessage);
-                    return;
-                }
-
                 graphClient.teams(teamId[i]).channels(channelId[i]).messages()
                         .buildRequest()
                         .post(chatMessage);
